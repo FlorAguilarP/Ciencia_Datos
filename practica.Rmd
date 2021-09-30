@@ -1,0 +1,82 @@
+---
+title: "Reporte RMarkdown"
+author: "Flor Naomi Aguilar Portilla"
+date: "29/9/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk $set(echo = TRUE)
+```
+
+
+# Tema
+
+## Subtema
+
+### Tercer nivel de título
+
+#### Cuarto nivel de tílulo 
+
+
+texto en cursivas *cursiva*
+
+
+texto en negritas **negritas**
+
+
+subíndice 3~2~  Ejemplo: H~2~O  Glucosa C~6~H~12~O~6~
+
+
+Superíndice 3^2^
+
+
+Texto tachado ~~texto~~
+
+
+Av. Xalapa #23
+
+
+# Tipado matemático
+
+Ecuación en línea $a=b+c$  
+
+Ecuación en un Bloque $$a=b+c$$
+
+Insertar Hipervínculo [títilo](dirección web), 
+ejemplo Mi [github]  (https://github.com/FlorAguilarP/Ciencia_Datos)
+
+
+## Bloque de comandos
+El bloque de comando se llama *chunk* se inserta presionando el botón con el cuadro verde que contiene la letra **C**, localizada en la esquina superior de esta ventana.
+
+Ejemplo: voy a llamar a una matriz de datos que se llama **iris**, que se encuentra precargada en R.
+```{r}
+data(iris)
+```
+
+## Exploración de matrices
+```{r}
+colnames(iris)
+```
+
+Mostrar el resultado del código.
+```{r echo=FALSE}
+colnames(iris)
+```
+
+Mostar código sin resultados.
+```{r results=FALSE}
+colnames (iris)
+```
+
+cargar y abrir paquetes
+```{r warning=FALSE, message=FALSE}
+library(ggplot2)
+```
+
+
+
+
+
+
