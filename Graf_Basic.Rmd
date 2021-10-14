@@ -1,0 +1,109 @@
+---
+title: "Grafícos básicos"
+author: "Flor Naomi Aguilar Portilla"
+date: "13/10/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Unidad 5. Análisis y visualizacion de datos.
+
+# Gráficos Básicos
+
+## Dataset.
+
+```{r, eval=FALSE, warning=FALSE, message=FALSE}
+install.packages("palmerpenguis")
+```
+```{r, warning=FALSE, message=FALSE}
+library(palmerpenguins)
+```
+
+## Paquetes de trabajo
+```{r, eval=FALSE, warning=FALSE, message=FALSE}
+install.packages("ggplot2")
+```
+```{r, eval=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+```
+```{r, eval=FALSE, warning=FALSE, message=FALSE}
+install.packages("RColorBrewer")
+```
+```{r}, eval=FALSE, warning=FALSE, message=FALSE}
+library(RColorBrewer)
+```
+
+
+
+## Impotración de la matriz
+```{r}
+BD<- penguins
+```
+
+## Exploración de la matrix.
+1.- Dimensión.
+```{r}
+dim(BD)
+```
+2.- Nombre de las columnas.
+```{r}
+colnames(BD)
+```
+3.- Clase a la que pertenece la matriz.
+```{r}
+class(BD)
+```
+4.- Estructura interna.
+```{r}
+str(BD)
+```
+**interger** (int): Adquieren Valores enteros. (Variables cuantitativas Discretas).
+**numeric** (num): adquieren valores enteros y con decimal. (Variables cuantitativas Concretas).
+
+5.- Estadística descrptiva básica.
+```{r}
+ summary(BD)
+```
+6.- Identificación de datos faltantes **(NA)**
+```{r}
+anyNA(BD)
+```
+7.- Tratamiento de NA's mediante el remplazo del dato por la media.
+7.1.-Trabajar sobre una nueva matríz de datos
+```{r}
+BD1<-BD
+```
+
+
+7.2 Conocer la media aritmética.
+```{r}
+mean(BD1$bill_length_mm, na.rm = TRUE)
+```
+
+7.2.- Reemplazar el valor perdido por la media.
+```{r}
+BD1$bill_length_mm_media<-ifelse(is.na(BD1$bill_length_mm), mean(BD1$bill_length_mm, na.rm=TRUE), BD1$bill_length_mm)
+```
+
+7.3.- Visualización de la nueva columna (bill_length_mm_media).
+```{r str_BD1}
+str(BD1)
+```
+7.4.- Repetir el paso 7.2, en las variables que tengan datos perdidos.
+
+```{r bill_length_media}
+BD1$bill_length_mm_media<-ifelse(is.na(BD1$bill_length_mm), mean(BD1$bill_length_mm, na.rm=TRUE), BD1$bill_length_mm)
+```
+```{r flipper_length_media}
+BD1$flipper_length_mm_media<-ifelse(is.na(BD1$flipper_length_mm), mean(BD1$flipper_length_mm, na.rm=TRUE), BD1$flipper_length_mm)
+```
+```{r body_mass_media}
+BD1$body_mass_g_media<-ifelse(is.na(BD1$body_mass_g), mean(BD1$body_mass_g, na.rm=TRUE), BD1$body_mass_g)
+```
+
+
+
+
