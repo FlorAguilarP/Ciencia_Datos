@@ -1,0 +1,89 @@
+---
+title: "Importación y Tratamiento de datos"
+author: "Flor Naomi Aguilar Portilla"
+date: "25/10/2021"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Vamos a utilizar como ejemplo: **iris**, que es una matriz de datos precargada en R.
+
+# Abrir matriz de datos.
+```{r, warning=FALSE, message=FALSE}
+library(datasets)
+```
+```{r, warning=FALSE, message=FALSE}
+data(iris)
+```
+
+
+# Exploración de los datos **iris**.
+1.- Dimensión de la matriz.
+```{r}
+dim(iris)
+```
+2.- Nombre de las columnas.
+```{r}
+colnames(iris)
+```
+```{r}
+names(iris)
+```
+3.- Clase a la que pertenece la matriz de datos.
+```{r}
+class(iris)
+```
+4.- Estructura interna.
+```{r}
+str(iris)
+```
+5.- Observación de una variable específica.
+```{r}
+iris$Species
+```
+6.- Visualización de tabla.
+```{r}
+View(iris)
+```
+
+7.- Estadística descriptiva básica.
+```{r}
+summary(iris)
+```
+
+
+# Datos faltantes.
+
+1.- Búsqueda de datos faltantes.
+```{r}
+anyNA(iris)
+```
+Nota: Se le pregunta a R si hay datos faltantes **(NA)**, R me responde con **FALSE** en caso de NO HABER NA's y **TRUE** en caso de HABER NA's.
+
+2.- Suma de datos faltantes.
+```{r}
+sum(is.na(iris))
+```
+3.- Librería **mice**.
+
+a) Instalar el paquete **mice**
+
+b) Función **md.pattern(iris)**, pero no me compila en el pdf, así que voy a insertar el gráfico de NA's como imagen.
+Nota: Se activó la función desde un script sencillo.
+
+
+
+# Datos atípicos.
+a) Detección. Se detectan con el gráfico boxplot.
+```{r}
+bx1<-boxplot(iris)
+bx1
+```
+b) filtrado de variables para realizar el boxplot
+```{r}
+bx2<-boxplot(iris[,c(1:4)], col = "cornsilk1")
+bx2
+```
+
